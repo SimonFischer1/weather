@@ -1,0 +1,120 @@
+body{
+    margin:0;
+    padding:0;
+    background:#111;
+    color:white;
+    font-family:'Poppins',sans-serif;
+}
+
+header{
+    position:relative;
+    padding:20px;
+    text-align:center;
+}
+
+.banner{
+    font-size:38px;
+    font-weight:700;
+    letter-spacing:5px;
+}
+
+.login{
+    position:absolute;
+    top:20px;
+    right:30px;
+    font-size:28px;
+}
+
+.separator{
+    height:2px;
+    background:white;
+}
+
+main{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+    padding:20px;
+}
+
+.weather-box{
+    background:#1c1c1c;
+    border-radius:15px;
+    padding:10px;
+}
+
+.weather-box h2{
+    text-align:center;
+}
+
+#radar,
+#wind{
+    height:500px;
+}
+
+.weather-box iframe{
+    width:100%;
+    height:500px;
+    border:none;
+    background:white;
+}
+
+.ais-section{
+    padding:20px;
+}
+
+.ais-section h2{
+    text-align:center;
+}
+
+.ais-map{
+    width:100%;
+    height:700px;
+    border:none;
+    border-radius:15px;
+}
+
+.links{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+    padding:20px;
+}
+
+.link-card{
+    background:#1c1c1c;
+    text-align:center;
+    padding:20px;
+    border-radius:12px;
+}
+
+.link-card a{
+    color:#66b3ff;
+    text-decoration:none;
+}
+
+footer{
+    text-align:center;
+    padding:20px;
+}
+
+.heart{
+    color:white;
+    font-size:24px;
+}
+
+.copyright{
+    color:#ccc;
+}
+
+@media(max-width:1200px){
+
+    main{
+        grid-template-columns:1fr;
+    }
+
+    .links{
+        grid-template-columns:1fr;
+    }
+
+}
