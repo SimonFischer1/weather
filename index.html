@@ -4,7 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Simon Fischer Wetterportal</title>
+<title>Simon Wetterportal</title>
 
 <style>
 
@@ -16,7 +16,6 @@ body{
 }
 
 header{
-    position:relative;
     text-align:center;
     padding:20px;
     border-bottom:2px solid white;
@@ -25,13 +24,6 @@ header{
 .banner{
     font-size:48px;
     font-weight:bold;
-}
-
-.login{
-    position:absolute;
-    right:30px;
-    top:30px;
-    font-size:32px;
 }
 
 .weather-grid{
@@ -45,6 +37,7 @@ header{
     background:#151515;
     border-radius:10px;
     overflow:hidden;
+    border:2px solid white;
 }
 
 .card h2{
@@ -67,21 +60,24 @@ iframe{
     padding:25px;
     border-radius:10px;
     text-align:center;
+    border:2px solid white;
 }
 
 .big-button{
-    background:#0066ff;
+    background:#000;
     color:white;
-    border:none;
+    border:2px solid white;
     padding:15px 25px;
     margin:10px;
     cursor:pointer;
     border-radius:8px;
     font-size:18px;
+    transition:all .3s ease;
 }
 
 .big-button:hover{
-    background:#0055d4;
+    background:#ff7b00;
+    border-color:#ff7b00;
 }
 
 .links{
@@ -92,17 +88,21 @@ iframe{
 }
 
 .link-btn{
-    background:#0080ff;
+    background:#000;
     color:white;
     text-decoration:none;
     padding:18px;
     text-align:center;
     border-radius:10px;
+    border:2px solid white;
     font-weight:bold;
+    display:block;
+    transition:all .3s ease;
 }
 
 .link-btn:hover{
-    background:#0066cc;
+    background:#ff7b00;
+    border-color:#ff7b00;
 }
 
 footer{
@@ -115,9 +115,20 @@ footer{
     font-size:24px;
 }
 
+.footer-link{
+    color:white;
+    text-decoration:none;
+    font-weight:bold;
+    transition:.3s;
+}
+
+.footer-link:hover{
+    color:#ff7b00;
+}
+
 .copy{
-    margin-top:10px;
     color:#ccc;
+    margin-top:10px;
 }
 
 @media(max-width:1000px){
@@ -133,6 +144,7 @@ footer{
 }
 
 </style>
+
 </head>
 
 <body>
@@ -141,10 +153,6 @@ footer{
 
 <div class="banner">
 Simon Wetterportal
-</div>
-
-<div class="login">
-👤
 </div>
 
 </header>
@@ -191,7 +199,8 @@ src="https://embed.windy.com/embed2.html?lat=53.14&lon=8.46&zoom=5&level=surface
 
 <p>DWD-Bodenwetterkarten öffnen</p>
 
-<button class="big-button"
+<button
+class="big-button"
 onclick="window.open('https://www.dwd.de/DE/leistungen/hobbymet_wk_europa/hobbyeuropakarten.html','_blank')">
 
 DWD öffnen
@@ -210,14 +219,16 @@ DWD öffnen
 
 <p>Live Schiffsdaten öffnen</p>
 
-<button class="big-button"
+<button
+class="big-button"
 onclick="window.open('https://www.marinetraffic.com','_blank')">
 
 MarineTraffic
 
 </button>
 
-<button class="big-button"
+<button
+class="big-button"
 onclick="window.open('https://www.vesselfinder.com','_blank')">
 
 VesselFinder
@@ -230,24 +241,43 @@ VesselFinder
 
 <div class="links">
 
-<a class="link-btn" href="https://www.canada.ca/en/environment-climate-change/services/ice-forecasts-observations/latest-conditions/canadian-sea-concentration-map.html">Canada latest ice conditions</a>
+<a class="link-btn"
+href="https://www.canada.ca/en/environment-climate-change/services/ice-forecasts-observations/latest-conditions/canadian-sea-concentration-map.html"
+target="_blank">
+Canada latest ice conditions
+</a>
 
-<a class="link-btn" href="https://google.de">TEXT2</a>
+<a class="link-btn" href="https://google.de" target="_blank">
+TEXT2
+</a>
 
-<a class="link-btn" href="https://google.de">TEXT3</a>
+<a class="link-btn" href="https://google.de" target="_blank">
+TEXT3
+</a>
 
-<a class="link-btn" href="https://google.de">TEXT4</a>
+<a class="link-btn" href="https://google.de" target="_blank">
+TEXT4
+</a>
 
-<a class="link-btn" href="https://google.de">TEXT5</a>
+<a class="link-btn" href="https://google.de" target="_blank">
+TEXT5
+</a>
 
-<a class="link-btn" href="https://google.de">TEXT6</a>
+<a class="link-btn" href="https://google.de" target="_blank">
+TEXT6
+</a>
 
 </div>
 
 <footer>
 
 <div class="love">
-Made with ❤️ by <a class="link-btn" href="https://www.instagram.com/thesimonfischer">Simon Fischer</a>
+Made with ❤️ by
+<a class="footer-link"
+href="https://www.instagram.com/thesimonfischer"
+target="_blank">
+Simon Fischer
+</a>
 </div>
 
 <div class="copy">
