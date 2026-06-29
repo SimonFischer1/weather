@@ -4,141 +4,284 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Simon Wetterportal</title>
+<title>Simon's Weather</title>
 
 <style>
 
-body{
-    margin:0;
-    font-family:Arial,sans-serif;
-    background:#050505;
-    color:white;
+:root{
+--navy:#172A39;
+--cream:#E9E4E0;
+--orange:#FC563C;
+--gray:#6E7575;
+--dark:#0D141B;
 }
 
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+}
+
+body{
+background:var(--navy);
+color:var(--cream);
+overflow-x:hidden;
+}
+
+/* Hintergrund */
+
+.background{
+position:fixed;
+inset:0;
+z-index:-1;
+overflow:hidden;
+}
+
+.blob{
+position:absolute;
+border-radius:50%;
+filter:blur(130px);
+opacity:.15;
+animation:float 18s infinite ease-in-out;
+}
+
+.blob1{
+width:500px;
+height:500px;
+background:var(--orange);
+top:-180px;
+right:-150px;
+}
+
+.blob2{
+width:400px;
+height:400px;
+background:var(--cream);
+bottom:-150px;
+left:-120px;
+animation-delay:4s;
+}
+
+.blob3{
+width:350px;
+height:350px;
+background:var(--gray);
+top:40%;
+left:45%;
+animation-delay:8s;
+}
+
+@keyframes float{
+0%,100%{
+transform:translateY(0);
+}
+50%{
+transform:translateY(-40px);
+}
+}
+
+/* Header */
+
 header{
-    text-align:center;
-    padding:20px;
-    border-bottom:2px solid white;
+text-align:center;
+padding:35px 20px;
+backdrop-filter:blur(10px);
+border-bottom:1px solid rgba(255,255,255,.15);
 }
 
 .banner{
-    font-size:48px;
-    font-weight:bold;
+text-decoration:none;
+font-size:52px;
+font-weight:700;
+color:var(--cream);
+transition:.3s;
+display:inline-block;
 }
 
+.banner:hover{
+color:var(--orange);
+transform:scale(1.03);
+}
+
+/* Grid */
+
 .weather-grid{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:20px;
-    padding:20px;
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:20px;
+padding:25px;
 }
 
 .card{
-    background:#151515;
-    border-radius:10px;
-    overflow:hidden;
-    border:2px solid white;
+background:rgba(13,20,27,.75);
+backdrop-filter:blur(15px);
+border:1px solid rgba(255,255,255,.15);
+border-radius:24px;
+overflow:hidden;
+transition:.3s;
+}
+
+.card:hover{
+transform:translateY(-5px);
+border-color:var(--orange);
 }
 
 .card h2{
-    text-align:center;
-    margin:15px;
+padding:18px;
+text-align:center;
+font-size:22px;
 }
 
 iframe{
-    width:100%;
-    height:500px;
-    border:none;
+width:100%;
+height:520px;
+border:none;
 }
 
 .section{
-    padding:20px;
+padding:0 25px 25px;
 }
 
 .big-box{
-    background:#151515;
-    padding:25px;
-    border-radius:10px;
-    text-align:center;
-    border:2px solid white;
+background:rgba(13,20,27,.75);
+backdrop-filter:blur(15px);
+border-radius:24px;
+border:1px solid rgba(255,255,255,.15);
+padding:35px;
+text-align:center;
 }
 
+.big-box h2{
+margin-bottom:15px;
+}
+
+.big-box p{
+margin-bottom:20px;
+color:#cfcfcf;
+}
+
+/* Buttons */
+
 .big-button{
-    background:#000;
-    color:white;
-    border:2px solid white;
-    padding:15px 25px;
-    margin:10px;
-    cursor:pointer;
-    border-radius:8px;
-    font-size:18px;
-    transition:all .3s ease;
+background:transparent;
+color:var(--cream);
+border:2px solid rgba(255,255,255,.2);
+padding:15px 25px;
+border-radius:14px;
+cursor:pointer;
+font-size:18px;
+margin:8px;
+transition:.3s;
 }
 
 .big-button:hover{
-    background:#ff7b00;
-    border-color:#ff7b00;
+background:var(--orange);
+border-color:var(--orange);
+}
+
+/* Quicklinks */
+
+.quicklinks-title{
+text-align:center;
+font-size:38px;
+padding-top:10px;
+padding-bottom:20px;
 }
 
 .links{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:15px;
-    padding:20px;
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:15px;
+padding:0 25px 35px;
 }
 
 .link-btn{
-    background:#000;
-    color:white;
-    text-decoration:none;
-    padding:18px;
-    text-align:center;
-    border-radius:10px;
-    border:2px solid white;
-    font-weight:bold;
-    display:block;
-    transition:all .3s ease;
+text-decoration:none;
+color:var(--cream);
+background:rgba(13,20,27,.75);
+backdrop-filter:blur(15px);
+border-radius:18px;
+border:1px solid rgba(255,255,255,.15);
+padding:20px;
+text-align:center;
+font-weight:600;
+transition:.3s;
 }
 
 .link-btn:hover{
-    background:#ff7b00;
-    border-color:#ff7b00;
+background:var(--orange);
+transform:translateY(-3px);
 }
 
+/* Footer */
+
 footer{
-    text-align:center;
-    padding:30px;
-    border-top:2px solid white;
+text-align:center;
+padding:40px;
+border-top:1px solid rgba(255,255,255,.15);
 }
 
 .love{
-    font-size:24px;
+font-size:24px;
 }
 
 .footer-link{
-    color:white;
-    text-decoration:none;
-    font-weight:bold;
-    transition:.3s;
+color:var(--cream);
+text-decoration:none;
+font-weight:bold;
+transition:.3s;
 }
 
 .footer-link:hover{
-    color:#ff7b00;
+color:var(--orange);
 }
 
 .copy{
-    color:#ccc;
-    margin-top:10px;
+margin-top:10px;
+color:var(--gray);
 }
 
-@media(max-width:1000px){
+/* Tablet */
+
+@media(max-width:1100px){
 
 .weather-grid{
-    grid-template-columns:1fr;
+grid-template-columns:1fr;
 }
 
 .links{
-    grid-template-columns:1fr;
+grid-template-columns:repeat(2,1fr);
+}
+
+iframe{
+height:450px;
+}
+
+}
+
+/* Smartphone */
+
+@media(max-width:768px){
+
+.banner{
+font-size:34px;
+}
+
+.links{
+grid-template-columns:1fr;
+}
+
+iframe{
+height:350px;
+}
+
+.card h2{
+font-size:18px;
+}
+
+.quicklinks-title{
+font-size:28px;
 }
 
 }
@@ -149,11 +292,23 @@ footer{
 
 <body>
 
+<div class="background">
+
+<div class="blob blob1"></div>
+<div class="blob blob2"></div>
+<div class="blob blob3"></div>
+
+</div>
+
 <header>
 
-<div class="banner">
-Simon Wetterportal
-</div>
+<a
+href="https://simonfischer1.github.io/hub/"
+class="banner">
+
+🌦️ Simon's Weather
+
+</a>
 
 </header>
 
@@ -197,7 +352,9 @@ src="https://embed.windy.com/embed2.html?lat=53.14&lon=8.46&zoom=5&level=surface
 
 <h2>🇩🇪 Deutscher Wetterdienst</h2>
 
-<p>DWD-Bodenwetterkarten öffnen</p>
+<p>
+Aktuelle Bodenwetterkarten und Wetteranalysen des DWD
+</p>
 
 <button
 class="big-button"
@@ -217,7 +374,9 @@ DWD öffnen
 
 <h2>🚢 AIS Schiffsverkehr</h2>
 
-<p>Live Schiffsdaten öffnen</p>
+<p>
+Live-Schiffsverkehr und AIS-Daten
+</p>
 
 <button
 class="big-button"
@@ -239,32 +398,64 @@ VesselFinder
 
 </div>
 
+<h2 class="quicklinks-title">
+Quicklinks
+</h2>
+
 <div class="links">
 
-<a class="link-btn"
+<a
+class="link-btn"
 href="https://www.canada.ca/en/environment-climate-change/services/ice-forecasts-observations/latest-conditions/canadian-sea-concentration-map.html"
 target="_blank">
-Canada latest ice conditions
+
+🇨🇦 Canada Ice Conditions
+
 </a>
 
-<a class="link-btn" href="https://google.de" target="_blank">
-TEXT2
+<a
+class="link-btn"
+href="https://map.openseamap.org"
+target="_blank">
+
+⚓ OpenSeaMap
+
 </a>
 
-<a class="link-btn" href="https://google.de" target="_blank">
-TEXT3
+<a
+class="link-btn"
+href="https://www.dwd.de"
+target="_blank">
+
+🌍 Deutscher Wetterdienst
+
 </a>
 
-<a class="link-btn" href="https://google.de" target="_blank">
-TEXT4
+<a
+class="link-btn"
+href="https://www.windy.com"
+target="_blank">
+
+💨 Windy
+
 </a>
 
-<a class="link-btn" href="https://google.de" target="_blank">
-TEXT5
+<a
+class="link-btn"
+href="https://www.marinetraffic.com"
+target="_blank">
+
+🚢 MarineTraffic
+
 </a>
 
-<a class="link-btn" href="https://google.de" target="_blank">
-TEXT6
+<a
+class="link-btn"
+href="https://www.vesselfinder.com"
+target="_blank">
+
+🛰️ VesselFinder
+
 </a>
 
 </div>
@@ -272,12 +463,18 @@ TEXT6
 <footer>
 
 <div class="love">
+
 Made with ❤️ by
-<a class="footer-link"
+
+<a
+class="footer-link"
 href="https://www.instagram.com/thesimonfischer"
 target="_blank">
+
 Simon Fischer
+
 </a>
+
 </div>
 
 <div class="copy">
