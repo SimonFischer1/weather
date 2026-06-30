@@ -99,20 +99,52 @@ transition:.3s;
 display:inline-block;
 }
 
-.banner:hover{
-color:var(--orange);
-transform:scale(1.03);
+.topnav{
+margin-top:20px;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-wrap:wrap;
+gap:20px;
 }
 
+.topnav a{
+color:var(--cream);
+text-decoration:none;
+font-weight:600;
+transition:.3s;
+}
+
+.topnav a:hover{
+color:var(--orange);
+}
+
+#toolSearch{
+width:100%;
+max-width:800px;
+padding:16px;
+font-size:18px;
+border:none;
+border-radius:18px;
+background:white;
+color:#172A39;
+display:block;
+margin:30px auto;
+box-shadow:0 8px 20px rgba(0,0,0,.2);
+}
+  
 /* Grid */
 
 .weather-grid{
 display:grid;
-grid-template-columns:repeat(3,1fr);
-gap:20px;
-padding:25px;
+grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
+gap:25px;
+padding:30px;
+max-width:1500px;
+margin:auto;
 }
 
+  
 .card{
 background:rgba(13,20,27,.75);
 backdrop-filter:blur(15px);
@@ -264,28 +296,104 @@ height:450px;
 
 @media(max-width:768px){
 
+header{
+padding:30px 15px;
+}
+
 .banner{
-font-size:34px;
+font-size:32px;
+display:block;
+}
+
+.topnav{
+gap:12px;
+}
+
+.topnav a{
+font-size:15px;
+}
+
+#toolSearch{
+font-size:16px;
+padding:15px;
+}
+
+.weather-grid{
+grid-template-columns:1fr;
+padding:15px;
+gap:15px;
+}
+
+.card{
+border-radius:18px;
+}
+
+.card h2{
+font-size:18px;
+padding:14px;
+}
+
+iframe{
+height:320px;
+}
+
+.section{
+padding:15px;
+}
+
+.big-box{
+padding:25px 15px;
+}
+
+.big-button{
+width:100%;
+display:block;
+margin:10px 0;
 }
 
 .links{
 grid-template-columns:1fr;
 }
 
-iframe{
-height:350px;
-}
-
-.card h2{
-font-size:18px;
-}
-
 .quicklinks-title{
+font-size:26px;
+}
+
+footer{
+padding:30px 15px;
+}
+
+}
+
+@media(max-width:480px){
+
+.banner{
 font-size:28px;
 }
 
+.topnav{
+gap:8px;
 }
 
+.topnav a{
+font-size:13px;
+}
+
+#toolSearch{
+font-size:14px;
+padding:14px;
+}
+
+iframe{
+height:260px;
+}
+
+.card h2{
+font-size:16px;
+}
+
+}
+  
 </style>
 
 </head>
@@ -310,8 +418,49 @@ class="banner">
 
 </a>
 
+<div class="topnav">
+
+<a href="https://simonfischer1.github.io/hub//a>
+
+https://simonfischer1.github.io/weather/
+
+https://simonfischer1.github.io/nautico/
+
+</div>
+
 </header>
 
+<div style="
+max-width:800px;
+margin:30px auto;
+padding:0 20px;
+">
+
+<input
+id="toolSearch"
+placeholder="🔍 Wettertools suchen ...">
+
+</div>
+  
+
+<div class="topnav">
+
+<a href="https://simonfischer1.github.io/hub/">
+🏠 Hub
+</a>
+
+<a href="https://simonfischer1.github.io/weather/">
+🌦 Weather
+</a>
+
+<a href="https://simonfischer1.github.io/nautico/">
+⚓ Nautico
+</a>
+
+</div>
+
+
+  
 <div class="weather-grid">
 
 <div class="card">
