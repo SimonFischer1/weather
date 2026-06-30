@@ -107,14 +107,111 @@ footer{
     color:#ccc;
 }
 
-@media(max-width:1200px){
+@media(max-width:1024px){
 
-    main{
-        grid-template-columns:1fr;
-    }
+.weather-grid{
+grid-template-columns:1fr;
+padding:20px;
+}
 
-    .links{
-        grid-template-columns:1fr;
-    }
+.links{
+grid-template-columns:repeat(2,1fr);
+}
+
+iframe{
+height:450px;
+}
+
+.banner{
+font-size:42px;
+}
+
+}
+
+@media(max-width:768px){
+
+header{
+padding:30px 15px;
+}
+
+.banner{
+font-size:32px;
+display:block;
+}
+
+.topnav{
+display:flex;
+justify-content:center;
+flex-wrap:wrap;
+gap:12px;
+margin-top:15px;
+}
+
+.topnav a{
+font-size:15px;
+}
+
+#toolSearch{
+font-size:16px;
+padding:15px;
+}
+
+.weather-grid{
+padding:15px;
+gap:15px;
+grid-template-columns:1fr;
+}
+
+.card{
+border-radius:18px;
+}
+
+.card h2{
+font-size:18px;
+padding:14px;
+}
+
+iframe{
+height:320px;
+}
+
+.section{
+padding:15px;
+}
+
+.big-box{
+padding:25px 15px;
+}
+
+.big-button{
+width:100%;
+display:block;
+margin:10px 0;
+}
+
+.links{
+grid-template-columns:1fr;
+padding:15px;
+}
+
+footer{
+padding:30px 15px;
+}
+
+}
+
+@media(max-width:480px){
+
+.banner{
+font-size:28px;
+}
+
+iframe{
+height:260px;
+}
+
+.card h2{
+font-size:16px;
+}
 
 }
