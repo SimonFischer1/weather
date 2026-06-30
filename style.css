@@ -1,117 +1,185 @@
 body{
-    margin:0;
-    padding:0;
-    background:#111;
-    color:white;
-    font-family:'Poppins',sans-serif;
+margin:0;
+padding:0;
+background:#172A39;
+color:#E9E4E0;
+font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;
+overflow-x:hidden;
 }
 
+/* HEADER */
+
 header{
-    position:relative;
-    padding:20px;
-    text-align:center;
+text-align:center;
+padding:40px 20px;
+border-bottom:1px solid rgba(255,255,255,.15);
 }
 
 .banner{
-    font-size:38px;
-    font-weight:700;
-    letter-spacing:5px;
+font-size:52px;
+font-weight:700;
+text-decoration:none;
+color:#E9E4E0;
+display:inline-block;
+transition:.3s;
 }
 
-.login{
-    position:absolute;
-    top:20px;
-    right:30px;
-    font-size:28px;
+.banner:hover{
+color:#FC563C;
+transform:scale(1.03);
 }
 
-.separator{
-    height:2px;
-    background:white;
+/* NAVIGATION */
+
+.topnav{
+margin-top:20px;
+display:flex;
+justify-content:center;
+align-items:center;
+flex-wrap:wrap;
+gap:20px;
 }
 
+.topnav a{
+color:#E9E4E0;
+text-decoration:none;
+font-weight:600;
+transition:.3s;
+}
+
+.topnav a:hover{
+color:#FC563C;
+}
+
+/* SUCHFELD */
+
+#toolSearch{
+width:100%;
+max-width:800px;
+padding:16px;
+font-size:18px;
+border:none;
+border-radius:18px;
+background:white;
+color:#172A39;
+display:block;
+margin:25px auto;
+}
+
+/* WETTER GRID */
+
+.weather-grid,
 main{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:20px;
-    padding:20px;
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(350px,1fr));
+gap:25px;
+padding:30px;
+max-width:1500px;
+margin:auto;
 }
 
-.weather-box{
-    background:#1c1c1c;
-    border-radius:15px;
-    padding:10px;
+/* KARTEN */
+
+.weather-box,
+.card{
+background:rgba(13,20,27,.8);
+border-radius:24px;
+border:1px solid rgba(255,255,255,.15);
+overflow:hidden;
+backdrop-filter:blur(15px);
 }
 
-.weather-box h2{
-    text-align:center;
+.weather-box h2,
+.card h2{
+text-align:center;
+padding:18px;
+font-size:22px;
 }
 
-#radar,
-#wind{
-    height:500px;
+/* WINDY */
+
+iframe{
+width:100%;
+height:520px;
+border:none;
 }
 
-.weather-box iframe{
-    width:100%;
-    height:500px;
-    border:none;
-    background:white;
-}
+/* AIS */
 
 .ais-section{
-    padding:20px;
-}
-
-.ais-section h2{
-    text-align:center;
+padding:25px;
 }
 
 .ais-map{
-    width:100%;
-    height:700px;
-    border:none;
-    border-radius:15px;
+width:100%;
+height:700px;
+border:none;
+border-radius:20px;
 }
 
+/* LINKS */
+
 .links{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:20px;
-    padding:20px;
+display:grid;
+grid-template-columns:repeat(3,1fr);
+gap:20px;
+padding:25px;
 }
 
 .link-card{
-    background:#1c1c1c;
-    text-align:center;
-    padding:20px;
-    border-radius:12px;
+background:rgba(13,20,27,.8);
+border-radius:20px;
+padding:20px;
+text-align:center;
+border:1px solid rgba(255,255,255,.15);
 }
 
 .link-card a{
-    color:#66b3ff;
-    text-decoration:none;
+text-decoration:none;
+color:#E9E4E0;
+font-weight:600;
 }
 
+/* BUTTONS */
+
+button{
+background:transparent;
+color:#E9E4E0;
+border:2px solid rgba(255,255,255,.2);
+padding:15px 25px;
+border-radius:14px;
+cursor:pointer;
+transition:.3s;
+}
+
+button:hover{
+background:#FC563C;
+border-color:#FC563C;
+}
+
+/* FOOTER */
+
 footer{
-    text-align:center;
-    padding:20px;
+text-align:center;
+padding:40px;
+border-top:1px solid rgba(255,255,255,.15);
 }
 
 .heart{
-    color:white;
-    font-size:24px;
+font-size:24px;
 }
 
 .copyright{
-    color:#ccc;
+color:#6E7575;
 }
+
+/* TABLET */
 
 @media(max-width:1024px){
 
-.weather-grid{
+.weather-grid,
+main{
 grid-template-columns:1fr;
-padding:20px;
 }
 
 .links{
@@ -119,7 +187,7 @@ grid-template-columns:repeat(2,1fr);
 }
 
 iframe{
-height:450px;
+height:420px;
 }
 
 .banner{
@@ -127,6 +195,8 @@ font-size:42px;
 }
 
 }
+
+/* SMARTPHONE */
 
 @media(max-width:768px){
 
@@ -136,15 +206,10 @@ padding:30px 15px;
 
 .banner{
 font-size:32px;
-display:block;
 }
 
 .topnav{
-display:flex;
-justify-content:center;
-flex-wrap:wrap;
 gap:12px;
-margin-top:15px;
 }
 
 .topnav a{
@@ -156,42 +221,30 @@ font-size:16px;
 padding:15px;
 }
 
-.weather-grid{
+.weather-grid,
+main{
+grid-template-columns:1fr;
 padding:15px;
 gap:15px;
-grid-template-columns:1fr;
 }
 
-.card{
-border-radius:18px;
-}
-
+.weather-box h2,
 .card h2{
 font-size:18px;
-padding:14px;
 }
 
 iframe{
 height:320px;
 }
 
-.section{
-padding:15px;
-}
-
-.big-box{
-padding:25px 15px;
-}
-
-.big-button{
-width:100%;
-display:block;
-margin:10px 0;
-}
-
 .links{
 grid-template-columns:1fr;
-padding:15px;
+}
+
+button{
+display:block;
+width:100%;
+margin:10px 0;
 }
 
 footer{
@@ -200,16 +253,28 @@ padding:30px 15px;
 
 }
 
+/* KLEINE ANDROID HANDYS */
+
 @media(max-width:480px){
 
 .banner{
 font-size:28px;
 }
 
+.topnav a{
+font-size:13px;
+}
+
+#toolSearch{
+font-size:14px;
+padding:14px;
+}
+
 iframe{
 height:260px;
 }
 
+.weather-box h2,
 .card h2{
 font-size:16px;
 }
